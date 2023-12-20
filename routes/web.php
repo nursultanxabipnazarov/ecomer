@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,4 @@ Route::middleware([
 });
 
 Route::get('/dash',[MainController::class,'dash']);
+Route::get('view-category',[AdminController::class,'viewCategory'])->name('viewCategory');
