@@ -34,21 +34,29 @@
                         <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
                         @if (Route::has('login'))
                             @auth
-                                
-                           
-                        <li  >
-                            <x-app-layout>
+
+
+                        <li class="cart" >
+                            {{-- <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form> --}}
+                        <x-app-layout>
                         </x-app-layout>
+
+
                         </li>
                         @else
                         <li class="cart"><a href="{{route('login')}}" class="btn btn-success " > LOGIN</a></li>
-                       
-                        
+
+
                         <li class="cart"><a href="{{route('register')}}" class="btn btn-success " > REGISTR</a></li>
                         @endauth
                         @endif
-                        
-                    
+
+
                     </ul>
                 </div>
             </div>
