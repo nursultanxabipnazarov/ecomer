@@ -32,3 +32,4 @@ Route::middleware([
 Route::get('/dash',[MainController::class,'dash']);
 Route::get('view-category',[AdminController::class,'viewCategory'])->name('viewCategory');
 Route::post('add-category',[AdminController::class,'addCategory'])->name('addCategory');
+Route::delete('delete-category/{id}',[AdminController::class,'destroyCategory'])->name('destroyCategory');

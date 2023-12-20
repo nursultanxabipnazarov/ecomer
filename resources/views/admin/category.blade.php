@@ -21,6 +21,12 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             </div>
         @endif
+        @if (session()->has('del'))
+        <div class="alert alert-danger alert-dismissible fade show">
+            {{ session('del') }}
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        </div>
+    @endif
         
             <div class="section-body">
                
@@ -63,44 +69,33 @@
                           <th>Name</th>
                           <th>Created At</th>
                           <th>Status</th>
-                          <th>Action</th>
+                          <th>Edit</th>
+                          <th>Delete</th>
                         </tr>
+                        @foreach ($Categories as $category)
+                            
                         <tr>
-                          <td>1</td>
-                          <td>Irwansyah Saputra</td>
-                          <td>2017-01-09</td>
+                          <td>{{$category->id}}</td>
+                          <td> {{$category->name}} </td>
+                          <td> {{$category->created_at}} </td>
                           <td>
                             <div class="badge badge-success">Active</div>
                           </td>
-                          <td><a href="#" class="btn btn-primary">Detail</a></td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Hasan Basri</td>
-                          <td>2017-01-09</td>
+                          <td><a href="#" class="btn btn-primary">Edit</a></td>
+
                           <td>
-                            <div class="badge badge-success">Active</div>
-                          </td>
-                          <td><a href="#" class="btn btn-primary">Detail</a></td>
+                            <form action=" {{route('destroyCategory',$category->id)}} " method="post" class="" >
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger " > 
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
                         </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Kusnadi</td>
-                          <td>2017-01-11</td>
-                          <td>
-                            <div class="badge badge-danger">Not Active</div>
-                          </td>
-                          <td><a href="#" class="btn btn-primary">Detail</a></td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Rizal Fakhri</td>
-                          <td>2017-01-11</td>
-                          <td>
-                            <div class="badge badge-success">Active</div>
-                          </td>
-                          <td><a href="#" class="btn btn-primary">Detail</a></td>
-                        </tr>
+                        @endforeach
+
+                      
                       </table>
                     </div>
                   </div>
