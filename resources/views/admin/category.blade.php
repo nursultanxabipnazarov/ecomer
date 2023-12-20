@@ -15,23 +15,35 @@
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
+            @if (session()->has('message'))
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ session('message') }}
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div>
+        @endif
+        
             <div class="section-body">
+               
+                    
                 <div class="row">
                   <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
                       <div class="card-header">
                         <h4>Add category</h4>
                       </div>
+                      <form action="{{route('addCategory')}}" method="post">
+                        @csrf
                       <div class="card-body">
                         <div class="form-group">
                           <label>Text</label>
-                          <input type="text" class="form-control">
+                          <input type="text"  name="name" class="form-control">
                         </div>
                         <div class="form-group">
                             <input type="submit" class="form-control w-50 btn btn-primary ">
                           </div>
                         
                       </div>
+                    </form>
                  
                   </div>
                  
