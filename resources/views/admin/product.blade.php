@@ -37,16 +37,17 @@
                       <div class="card-header">
                         <h4>Add category</h4>
                       </div>
-                      <form action="{{route('addCategory')}}" method="post">
+                      <form action="{{route('addProduct')}}" method="post" enctype="multipart/form-data" >
                         @csrf
                       <div class="card-body">
                         <div class="form-group">
                             <label>Select Category </label>
                             <select class="form-control form-control-sm">
                                 <option value="" selected="" > Category </option>
-                              <option>Option 1</option>
-                              <option>Option 2</option>
-                              <option>Option 3</option>
+                                @foreach($category as $category)
+                              <option value="{{$category->id}}" >{{$category->name}}</option>
+                              @endforeach
+
                             </select>
                           </div>
                         <div class="form-group">
