@@ -24,13 +24,13 @@
         @if (session()->has('del'))
         <div class="alert alert-danger alert-dismissible fade show">
             {{ session('del') }}
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <button type="button"  class="close" data-dismiss="alert" aria-hidden="true">×</button>
         </div>
     @endif
-        
+
             <div class="section-body">
-               
-                    
+
+
                 <div class="row">
                   <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
@@ -47,14 +47,14 @@
                         <div class="form-group">
                             <input type="submit" class="form-control w-50 btn btn-primary ">
                           </div>
-                        
+
                       </div>
                     </form>
-                 
+
                   </div>
-                 
+
                 </div>
-                
+
               </div>
               <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
@@ -73,7 +73,7 @@
                           <th>Delete</th>
                         </tr>
                         @foreach ($Categories as $category)
-                            
+
                         <tr>
                           <td>{{$category->id}}</td>
                           <td> {{$category->name}} </td>
@@ -87,7 +87,7 @@
                             <form action=" {{route('destroyCategory',$category->id)}} " method="post" class="" >
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger " > 
+                                <button type="submit"  class="btn btn-danger " onclick = "return confirm('Rastan oshirejaqsizba?')" >
                                     Delete
                                 </button>
                             </form>
@@ -95,7 +95,7 @@
                         </tr>
                         @endforeach
 
-                      
+
                       </table>
                     </div>
                   </div>
@@ -119,10 +119,10 @@
                   </div>
                 </div>
               </div>
-              
+
             </section>
 
-       
+
     </div>
     @include('admin.footer')
     </div>

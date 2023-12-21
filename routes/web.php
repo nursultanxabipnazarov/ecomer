@@ -33,3 +33,4 @@ Route::get('/dash',[MainController::class,'dash'])->name('dash');
 Route::get('view-category',[AdminController::class,'viewCategory'])->name('viewCategory');
 Route::post('add-category',[AdminController::class,'addCategory'])->name('addCategory');
 Route::delete('delete-category/{id}',[AdminController::class,'destroyCategory'])->name('destroyCategory');
+Route::get('view-product',[AdminController::class,'viewProduct'])->name('viewProduct');

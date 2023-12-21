@@ -31,4 +31,15 @@ class AdminController extends Controller
 
         return redirect()->back()->with('del','Category deleted');
     }
+
+
+
+    //PRODUCTS 
+
+
+    public function viewProduct(){
+
+        $category  = Category::all();
+        return view('admin.product',compact('category'));
+    }
 }
