@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('img')->nullable();
             $table->string('price')->nullable();
-            $table->string('desc')->nullable();
+            $table->text('desc')->nullable();
             $table->string('quantity')->nullable();
             $table->string('discount_price')->nullable();
             $table->timestamps();

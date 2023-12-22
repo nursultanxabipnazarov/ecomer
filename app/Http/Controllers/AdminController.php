@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Livewire\Attributes\Validate;
+
 
 
 class AdminController extends Controller
@@ -48,9 +50,8 @@ class AdminController extends Controller
 
     public function addProduct(Request $request){
 
-
-        $request->validate([
-            'category_id'=>'required',
+     $data =  $request->validate([
+        
             'name'=>'required',
             'price'=>'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -59,13 +60,30 @@ class AdminController extends Controller
             'discount_price'=>'required'
 
         ]);
+      
+        $data = $request->all();
+
+        if($request->hasFile('img')){
+            $img = $request->file('img');
+            $imgName = time()."-".$img->getClientOriginalName();
+            $path = $img->storeAs('product-img',$imgName);
+            $data['img'] = $imgName;
+        }
+
+        
 
 
-        $name = $request->file('img')->getClientOriginalName();
-        dd($name);
-        $path = $request->file('img')->storeAs('product-img',$name);
+        Product::create($data);
+       return redirect()->back()->with('message','Product added successfuly');
+
+     
 
 
+        }
 
+        public function showProducts(){
+            $products = Product::all();
+
+            return view('admin.show-products',compact('products'));
         }
 }

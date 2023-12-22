@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span
+        <a href="index.html"> <img alt="image" src="admin/assets/img/logo.png" class="header-logo" /> <span
             class="logo-name">Otika</span>
         </a>
       </div>
@@ -15,13 +15,13 @@
               data-feather="briefcase"></i><span>Category</span></a>
           <ul class="dropdown-menu">
             <li><a class="nav-link" href="{{route('viewCategory')}}">Add-Category</a></li>
-            <li><a class="nav-link" href="widget-data.html">Data Widgets</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Products</span></a>
           <ul class="dropdown-menu">
             <li><a class="nav-link" href="{{route('viewProduct')}}">Add Product</a></li>
+            <li><a class="nav-link" href="{{route('showProducts')}}">Show Products</a></li>
             <li><a class="nav-link" href="portfolio.html">Portfolio</a></li>
             <li><a class="nav-link" href="blog.html">Blog</a></li>
             <li><a class="nav-link" href="calendar.html">Calendar</a></li>

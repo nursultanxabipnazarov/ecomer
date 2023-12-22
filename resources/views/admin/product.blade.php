@@ -15,12 +15,12 @@
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
-            @if (session()->has('message'))
-            <div class="alert alert-success alert-dismissible fade show">
-                {{ session('message') }}
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            </div>
-        @endif
+          @if (session()->has('message'))
+          <div class="alert alert-success alert-dismissible fade show">
+              {{ session('message') }}
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          </div>
+      @endif
         @if (session()->has('del'))
         <div class="alert alert-danger alert-dismissible fade show">
             {{ session('del') }}
@@ -29,10 +29,11 @@
     @endif
 
             <div class="section-body">
-
+          
 
                 <div class="row">
-                  <div class="col-12 col-md-6 col-lg-4">
+                 
+                  <div class="col-12 col-md-6 col-lg-8">
                     <div class="card">
                       <div class="card-header">
                         <h4>Add category</h4>
@@ -42,7 +43,7 @@
                       <div class="card-body">
                         <div class="form-group">
                             <label>Select Category </label>
-                            <select class="form-control form-control-sm">
+                            <select name="category_id" class="form-control form-control-sm">
                                 <option value="" selected="" > Category </option>
                                 @foreach($category as $category)
                               <option value="{{$category->id}}" >{{$category->name}}</option>
