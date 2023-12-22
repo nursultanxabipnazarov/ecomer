@@ -26,7 +26,7 @@
             {{ session('del') }}
             <button type="button"  class="close" data-dismiss="alert" aria-hidden="true">×</button>
         </div>
-    @endif
+       @endif
 
             <div class="section-body">
 

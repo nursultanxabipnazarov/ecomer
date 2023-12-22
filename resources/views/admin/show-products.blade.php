@@ -17,6 +17,12 @@
       <div class="main-content">
         <section class="section">
           <div class="section-body">
+            @if (session()->has('del'))
+            <div class="alert alert-danger alert-dismissible fade show">
+                {{ session('del') }}
+                <button type="button"  class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div>
+        @endif
       <div class="row">
         <div class="col-12">
           <div class="card">
@@ -51,6 +57,8 @@
                     <th>quantity</th>
                     <th>Discount Price</th>
                     <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                   </tr>
 
                   @foreach ($products as $product)
@@ -67,7 +75,7 @@
                     <td>  {{$product->name}} </td>
                     
                     <td>
-                      <img alt="image" src="storage/product-img/{{$product->img}}" class="" width="60"
+                      <img alt="image" src="storage/product-img/{{$product->img}}" class="" width="100"
                         data-toggle="tooltip" title="Wildan Ahdian">
                     </td>
                     <td> {{$product->price}} </td>
@@ -75,8 +83,11 @@
                       {{$product->quantity}}
                     </td>
                     <td> {{$product->discount_price}} </td>
-                    <td>{!!Str::words($product->desc,2,'...')!!} </td>
+                    <td>{!!Str::words($product->desc,2,'...')!!} <a href="">Learn More</a> </td>
+                    <td > <a href="{{route('updateProduct',$product->id)}}" class="btn btn btn-primary" >Edit</a> </td>
+                    <td > <a href="{{route('deleteProduct',$product->id)}}" class="btn btn btn-danger" onclick="return confirm('Are you sure you want to delete it?')" >Delete</a> </td>
                   </tr>
+
                   @endforeach
 
               
