@@ -37,3 +37,4 @@ Route::post('add-product',[AdminController::class,'addProduct'])->name('addProdu
 Route::get('show-products',[AdminController::class,'showProducts'])->name('showProducts');
 Route::get('delete_product/{id}',[AdminController::class,'deleteProduct'])->name('deleteProduct');
 Route::get('update-product/{id}',[AdminController::class,'updateProduct'])->name('updateProduct');
+Route::get('detalis-product/{id}',[MainController::class,'detalisProduct'])->name('detalisProduct');

@@ -3,21 +3,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-7 col-md-9">
-                    <div id="colorlib-logo"><a href="index.html">Footwear</a></div>
+                    <div id="colorlib-logo"><a href="{{route('index')}}">Footwear</a></div>
                 </div>
                 <div class="col-sm-5 col-md-3">
                 <form action="#" class="search-wrap">
                    <div class="form-group">
                       <input type="search" class="form-control search" placeholder="Search">
                       <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
-                   </div>
+                </div>
                 </form>
              </div>
          </div>
             <div class="row">
                 <div class="col-sm-12 text-left menu-1">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="{{route('index')}}">Home</a></li>
                         <li class="has-dropdown">
                             <a href="men.html">Men</a>
                             <ul class="dropdown">
