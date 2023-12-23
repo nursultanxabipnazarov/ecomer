@@ -6,10 +6,12 @@
             </div>
         </div>
         <div class="row row-pb-md">
+            @foreach ($products as $product )
+
             <div class="col-lg-3 mb-4 text-center">
                 <div class="product-entry border">
                     <a href="#" class="prod-img">
-                        <img src="home/images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                        <img src="storage/product-img/{{ $product->img }}" class="img-fluid" alt="Free html5 bootstrap 4 template">
                     </a>
                     <div class="desc">
                         <h2><a href="#">Women's Boots Shoes Maca</a></h2>
@@ -17,7 +19,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 mb-4 text-center">
+            @endforeach
+
+
+            {{-- <div class="col-lg-3 mb-4 text-center">
                 <div class="product-entry border">
                     <a href="#" class="prod-img">
                         <img src="home/images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
@@ -27,8 +32,8 @@
                         <span class="price">$139.00</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
+            </div> --}}
+            {{-- <div class="col-lg-3 mb-4 text-center">
                 <div class="product-entry border">
                     <a href="#" class="prod-img">
                         <img src="/home/images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
@@ -184,7 +189,7 @@
                         <span class="price">$139.00</span>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="row">
             <div class="col-md-12 text-center">

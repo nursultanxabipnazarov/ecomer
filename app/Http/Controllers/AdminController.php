@@ -54,7 +54,7 @@ class AdminController extends Controller
         
             'name'=>'required',
             'price'=>'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             'desc'=>'required',
             'quantity'=>'required',
             'discount_price'=>'required'
