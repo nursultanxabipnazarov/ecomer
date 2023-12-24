@@ -20,7 +20,7 @@ class MainController extends Controller
 {
 
     public function index(){
-        $products =  Product::paginate(5);
+        $products =  Product::paginate(8);
         return view('home.index',compact('products'));
     }
     public function dash(){
@@ -108,6 +108,11 @@ class MainController extends Controller
 
 
 
+
+    }
+
+
+    public  function addOrder(){
 
     }
 }
