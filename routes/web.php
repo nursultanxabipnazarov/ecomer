@@ -39,3 +39,5 @@ Route::get('delete_product/{id}',[AdminController::class,'deleteProduct'])->name
 Route::get('update-product/{id}',[AdminController::class,'updateProduct'])->name('updateProduct');
 Route::get('detalis-product/{id}',[MainController::class,'detalisProduct'])->name('detalisProduct');
 Route::post('add-to-cart/{id}',[MainController::class,'addToCart'])->name('addToCart');
+Route::get('show-cart',[MainController::class,'showCart'])->name('showCart');
+Route::get('remove-cart/{id}',[MainController::class,'removeCart'])->name('removeCart');

@@ -74,7 +74,7 @@ class MainController extends Controller
             'quantity'=>$request->count
            ]);
 
-         return  redirect()->back();
+         return  redirect()->route('showCart')->with('message','Product Added Cart');
 
        
             }
@@ -84,6 +84,30 @@ class MainController extends Controller
                 }
            
            
+
+    }
+
+    public function showCart(){
+
+        if(Auth::check()){
+            $id = Auth::user()->id;
+            $carts  = Cart::where('user_id','=',$id)->get();
+            return view('home.show-cart',compact('carts'));
+        }else{
+            return redirect()->route('login');
+        }
+   
+    }
+
+    public function removeCart($id){
+
+        $cart = Cart::findOrFail($id);
+        $cart->delete();
+
+       return redirect()->back()->with('message','Cart deleted successfuly!');
+
+
+
 
     }
 }

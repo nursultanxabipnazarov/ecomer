@@ -31,7 +31,7 @@
                         <li><a href="women.html">Women</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+                        <li class="cart"><a href="{{route('showCart')}}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
                         @if (Route::has('login'))
                             @auth
 
