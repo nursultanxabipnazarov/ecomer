@@ -38,3 +38,4 @@ Route::get('show-products',[AdminController::class,'showProducts'])->name('showP
 Route::get('delete_product/{id}',[AdminController::class,'deleteProduct'])->name('deleteProduct');
 Route::get('update-product/{id}',[AdminController::class,'updateProduct'])->name('updateProduct');
 Route::get('detalis-product/{id}',[MainController::class,'detalisProduct'])->name('detalisProduct');
+Route::post('add-to-cart/{id}',[MainController::class,'addToCart'])->name('addToCart');

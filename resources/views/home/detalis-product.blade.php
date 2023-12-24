@@ -57,19 +57,25 @@
                             <div class="col-md-6">
                                 <div class="product p-4">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                                        <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> </div> <i class="fa fa-shopping-cart text-muted"></i>
                                     </div>
-                                    <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Orianz</span>
-                                        <h5 class="text-uppercase">{{$product->name}}</h5>
-                                        <div class="price d-flex flex-row align-items-center"> <span class="act-price">$20</span>
-                                            <div class="ml-2"> <small class="dis-price">$59</small> <span>40% OFF</span> </div>
+                                    <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand"></span>
+                                        <h5 class="text-uppercase">Name: {{$product->name}}</h5>
                                         </div>
                                     </div>
-                                    <p class="about">{{$product->desc}}.</p>
+                                    <p class="about">Description: {{$product->desc}}.</p>
+                                    <p class="about">Price: {{$product->price}}.</p>
                                     <div class="sizes mt-5">
-                                        <h6 class="text-uppercase">{{$product->quantity}} </h6>  </label>
+                                        <h2 class="text-uppercase">QUANTITY: {{$product->quantity}} </h2>  </label>
                                     </div>
-                                    <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+
+									<form action="{{route('addToCart',$product->id)}}" method="post">
+										@csrf
+										<input type="number" name="count" value="1" min="1" id="">
+										<input type="submit" value="Ok">
+										<div class="cart mt-4 align-items-center"> <button type="submit" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+
+									</form>
                                 </div>
                             </div>
                         </div>
