@@ -83,6 +83,7 @@
                                   class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
                             </div>
                           </div>
+                     
                           <?php $allTotalPrice = 0  ?>
                           <div class="card mb-3">
                             @foreach ($carts as  $cart)
@@ -203,15 +204,7 @@
            --}}
                         </div>
                         <div class="col-lg-5">
-                            <div class="container">
-                                <h2>To'lov</h2>
-                                <form action="" method="post">
-                                    @csrf
-                                   
-                                    <!-- Qo'shimcha maydonlar va tugmalar -->
-                                    <button type="submit" class="btn btn-primary">To'lovni amalga oshirish</button>
-                                </form>
-                            </div>
+                         
                             
           
                           <div class="card bg-primary text-white rounded-3">
@@ -252,8 +245,8 @@
                               </div>
           
                               <button type="button" class="btn btn-success btn-block btn-lg">
-                                <a href="{{route('addOrder')}}" class="d-flex justify-content-between" >
-                                    Перейти к оформлению
+                                <a href="{{route('addCashOrder')}}" class="d-flex justify-content-between" >
+                                    Cash payment
                                     <div class="d-flex justify-content-between">
                                         <span>${{$allTotalPrice}}</span>
                                       </div>
@@ -261,8 +254,8 @@
                                 
                               </button>
                               <button type="button" class="btn btn-success btn-block btn-lg">
-                                <a href="{{route('addOrder')}}" class="d-flex justify-content-between" >
-                                    Перейти к оформлению
+                                <a href="" class="d-flex justify-content-between" >
+                                    Card payment
                                     <div class="d-flex justify-content-between">
                                         <span>${{$allTotalPrice}}</span>
                                       </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -112,7 +113,30 @@ class MainController extends Controller
     }
 
 
-    public  function addOrder(){
-
+    public  function addCashOrder(){
+        $user = Auth::user();
+        $cart = Cart::where('user_id','=',$user->id)->get();
+        
+        foreach($cart as $cart){
+            Order::create([
+                'product_id'=>$cart->product_id,
+                'user_id'=>$cart->user_id,
+                'user_name'=>$cart->user_name,
+                'email'=>$cart->email,
+                'phone'=>$cart->phone,
+                'address'=>$cart->address,
+                'product_name' => $cart->product_name,
+                'img'=>$cart->img,
+                'price'=>$cart->price,
+                'total_price'=>$cart->total_price,
+                'quantity'=>$cart->quantity,
+                'payment_status'=>'cash',
+                'delivery_status'=>'processing'
+            ]);
+            $cart_id = $cart->id;
+            $oldCart = Cart::findOrFail($cart_id);
+            $oldCart->delete();
+        }
+        return redirect()->back()->with('message','Your order has been sent successfully');
     }
 }
