@@ -25,7 +25,7 @@ class MainController extends Controller
     }
     public function dash(){
        $userType =  Auth::user()->user_type;
-       
+
 
 
         if($userType==1){
@@ -45,9 +45,9 @@ class MainController extends Controller
 
 
     public function addToCart(Request $request, $id){
-       
+
      if(Auth::check()){
-        
+
         $user = Auth::user();
         $product = Product::findOrFail($id);
 
@@ -76,14 +76,14 @@ class MainController extends Controller
 
          return  redirect()->route('showCart')->with('message','Product Added Cart');
 
-       
+
             }
                 else{
-           
+
                    return redirect()->route('login')->with('message','Satip aliwdi qaleseniz dizimnen otin!');
                 }
-           
-           
+
+
 
     }
 
@@ -96,7 +96,7 @@ class MainController extends Controller
         }else{
             return redirect()->route('login');
         }
-   
+
     }
 
     public function removeCart($id){

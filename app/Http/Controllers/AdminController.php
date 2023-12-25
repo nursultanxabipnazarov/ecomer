@@ -51,16 +51,16 @@ class AdminController extends Controller
     public function addProduct(Request $request){
 
      $data =  $request->validate([
-        
+
             'name'=>'required',
             'price'=>'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10000',
             'desc'=>'required',
             'quantity'=>'required',
-           
+
 
         ]);
-      
+
         $data = $request->all();
 
         if($request->hasFile('img')){
@@ -70,13 +70,13 @@ class AdminController extends Controller
             $data['img'] = $imgName;
         }
 
-        
+
 
 
         Product::create($data);
        return redirect()->back()->with('message','Product added successfuly');
 
-     
+
 
 
         }
@@ -100,5 +100,12 @@ class AdminController extends Controller
 
             return view('admin.update-product',compact('product'));
 
+        }
+
+        public function searchProduct(Request $request){
+
+            $search  = $request->search;
+            $products  = Product::where('name','LIKE','%'.$search.'%')->get();
+            return view('admin.show-products',compact('products'));
         }
 }

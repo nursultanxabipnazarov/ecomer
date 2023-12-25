@@ -8,7 +8,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="home/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -27,7 +27,7 @@
 	<!-- Owl Carousel -->
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	
+
 	<!-- Date Picker -->
 	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
 	<!-- Flaticons  -->
@@ -38,7 +38,7 @@
 
 	</head>
 	<body>
-		
+
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
@@ -69,12 +69,16 @@
                                         <h2 class="text-uppercase">QUANTITY: {{$product->quantity}} </h2>  </label>
                                     </div>
 
-									<form action="{{route('addToCart',$product->id)}}" method="post">
+									<form class="form-control"  action="{{route('addToCart',$product->id)}}" method="post">
 										@csrf
 										<input type="number" name="count" value="1" min="1" id="">
-										<input type="submit" value="Ok">
-										<div class="cart mt-4 align-items-center"> <button type="submit" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+										<div class="cart mt-4 align-items-center"> <button type="submit" class="form-input btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
 
+                                        <style>
+                                            .form-input {
+                                                color: #333
+                                            }
+                                        </style>
 									</form>
                                 </div>
                             </div>
@@ -89,7 +93,7 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
 	</div>
-	
+
 	<!-- jQuery -->
 	<script src="home/js/jquery.min.js"></script>
    <!-- popper -->

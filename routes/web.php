@@ -42,3 +42,4 @@ Route::post('add-to-cart/{id}',[MainController::class,'addToCart'])->name('addTo
 Route::get('show-cart',[MainController::class,'showCart'])->name('showCart');
 Route::get('remove-cart/{id}',[MainController::class,'removeCart'])->name('removeCart');
 Route::get('add-order-product',[MainController::class,'addOrder'])->name('addOrder');
+Route::get('/search',[AdminController::class,'searchProduct'])->name('searchProduct');

@@ -29,9 +29,10 @@
             <div class="card-header">
               <h4>Advanced Table</h4>
               <div class="card-header-form">
-                <form>
+                <form action="{{route('searchProduct') }}" method="GET" >
+                    @csrf
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" name="search" class="form-control" placeholder="Search">
                     <div class="input-group-btn">
                       <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                     </div>
@@ -62,7 +63,7 @@
                   </tr>
 
                   @foreach ($products as $product)
-                      
+
                   <tr>
                     <td class="p-0 text-center">
                       <div class="custom-checkbox custom-control">
@@ -73,7 +74,7 @@
                     </td>
                     <td>  {{$product->category_id}} </td>
                     <td>  {{$product->name}} </td>
-                    
+
                     <td>
                       <img alt="image" src="storage/product-img/{{$product->img}}" class="" width="100"
                         data-toggle="tooltip" title="Wildan Ahdian">
@@ -90,7 +91,7 @@
 
                   @endforeach
 
-              
+
                 </table>
               </div>
             </div>
