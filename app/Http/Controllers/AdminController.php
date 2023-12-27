@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
+
 use Illuminate\Http\Request;
 use Livewire\Attributes\Validate;
 
@@ -107,5 +109,16 @@ class AdminController extends Controller
             $search  = $request->search;
             $products  = Product::where('name','LIKE','%'.$search.'%')->get();
             return view('admin.show-products',compact('products'));
+        }
+
+
+        //Order
+
+
+        public function showOrder(){
+
+            $orders = Order::all();
+             return view('admin.order',compact('orders'));
+
         }
 }
