@@ -44,3 +44,5 @@ Route::get('remove-cart/{id}',[MainController::class,'removeCart'])->name('remov
 Route::get('add-order-product',[MainController::class,'addCashOrder'])->name('addCashOrder');
 Route::get('/search',[AdminController::class,'searchProduct'])->name('searchProduct');
 Route::get('show-order',[AdminController::class,'showOrder'])->name('showOrder');
+Route::get('delivery-status/{id}',[AdminController::class,'deliveryStatus'])->name('deliveryStatus');
+Route::get('pdf-print/{id}',[AdminController::class,'pdfPrint'])->name('pdfPrint');

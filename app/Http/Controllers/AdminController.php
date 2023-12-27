@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
+use PDF;
+
+
 
 use Illuminate\Http\Request;
 use Livewire\Attributes\Validate;
@@ -119,6 +122,31 @@ class AdminController extends Controller
 
             $orders = Order::all();
              return view('admin.order',compact('orders'));
+
+        }
+
+
+        public function deliveryStatus($id){
+
+            $order = Order::findOrFail($id);
+            $name = $order->user_name;
+
+            Order::where('id',$id)->update(['delivery_status'=>'delivered']);
+                
+
+           return  redirect()->back()->with('message',$name.'ga jetkerildi');
+
+
+
+
+        }
+
+        public function pdfPrint($id){
+
+            $order = Order::findOrFail($id);
+
+            $pdf = PDF::loadView('admin.order-pdf',compact('order'));
+            return $pdf->download('chek_order.pdf');
 
         }
 }

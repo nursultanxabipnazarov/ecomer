@@ -17,9 +17,9 @@
       <div class="main-content">
         <section class="section">
           <div class="section-body">
-            @if (session()->has('del'))
-            <div class="alert alert-danger alert-dismissible fade show">
-                {{ session('del') }}
+            @if (session()->has('message'))
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ session('message') }}
                 <button type="button"  class="close" data-dismiss="alert" aria-hidden="true">×</button>
             </div>
         @endif
@@ -90,10 +90,23 @@
                     <td> {{$order->phone}} </td>
                     <td> {{$order->email}} </td>
                     <td> {{$order->address}} </td>
-                    <td > <a href="" class="btn btn-success" >{{$order->payment_status}}</a> </td>
-                    <td > <a href="" class="btn btn btn-danger"  >{{$order->delivery_status}}</a> </td>
-                    <td > <a href="" class="btn btn btn-primary"  >delivery</a> </td>
-                    <td > <a href="" class="btn btn btn-danger"  ></a> </td>
+                    <td > <p class="" >{{$order->payment_status}}</p> </td>
+                    @if ($order->delivery_status=='delivered')
+                    <td > <p class="text-success"  >{{$order->delivery_status}}</p> </td>
+                    @else 
+                    <td > <p class="text-danger"  >{{$order->delivery_status}}</p> </td>
+                    @endif
+
+                    @if($order->delivery_status=='processing')
+                    <td > <a href="{{route('deliveryStatus',$order->id)}}" class="btn btn btn-primary"  >Delivery</a> </td>
+                    @else
+                     
+                   <td>
+                    <p>Delivered</p>
+                    </td>
+                    @endif
+                    
+                    <td > <a href="{{route('pdfPrint',$order->id)}}" class="btn btn-secondary"  >PDF print</a> </td>
                   </tr>
 
                   @endforeach
