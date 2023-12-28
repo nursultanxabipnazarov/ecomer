@@ -9,6 +9,9 @@ use PDF;
 
 
 
+
+
+
 use Illuminate\Http\Request;
 use Livewire\Attributes\Validate;
 
@@ -132,7 +135,7 @@ class AdminController extends Controller
             $name = $order->user_name;
 
             Order::where('id',$id)->update(['delivery_status'=>'delivered']);
-                
+
 
            return  redirect()->back()->with('message',$name.'ga jetkerildi');
 
