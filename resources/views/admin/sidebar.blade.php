@@ -31,7 +31,7 @@
           <a href="" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Order</span></a>
           <ul class="dropdown-menu">
             <li><a class="nav-link" href="{{route('showOrder')}}">Order</a></li>
-            <li><a class="nav-link" href="email-compose.html">Compose</a></li>
+            <li><a class="nav-link" href="{{ route('viewPdf') }}">PDF</a></li>
             <li><a class="nav-link" href="email-read.html">read</a></li>
           </ul>
         </li>

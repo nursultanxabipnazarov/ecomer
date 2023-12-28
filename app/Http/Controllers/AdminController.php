@@ -152,4 +152,9 @@ class AdminController extends Controller
             return $pdf->download('chek_order.pdf');
 
         }
+
+        public function viewPdf(){
+
+            return view('admin.order-pdf');
+        }
 }

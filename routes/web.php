@@ -46,3 +46,4 @@ Route::get('/search',[AdminController::class,'searchProduct'])->name('searchProd
 Route::get('show-order',[AdminController::class,'showOrder'])->name('showOrder');
 Route::get('delivery-status/{id}',[AdminController::class,'deliveryStatus'])->name('deliveryStatus');
 Route::get('pdf-print/{id}',[AdminController::class,'pdfPrint'])->name('pdfPrint');
+Route::get('view-pdf',[AdminController::class,'viewPdf'])->name('viewPdf');
