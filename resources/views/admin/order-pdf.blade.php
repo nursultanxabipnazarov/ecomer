@@ -135,59 +135,72 @@ h3 {
 <div class="container">
 
     <div class="receipt_header">
-    <h1>Kvitansiya <span>{{ $order->name }}</span></h1>
-    <h2>Address: {{ $order->address }} <span>{{ $order->phone }}</span></h2>
+    <h1>Kvitansiya <span></span></h1>
+    <h2>Address:  <span></span></h2>
     </div>
 
     <div class="receipt_body">
 
         <div class="date_time_con">
-            <div class="date">{{ $order->created_at }}</div>
-            <div class="time">11:13:06 AM</div>
+            <div class="date"></div>
+            <div class="time">  </div>
         </div>
 
         <div class="items">
             <table>
-
-                <thead>
-                    <th>Client Name</th>
-                    <th>Email:</th>
-                    {{-- <th>Phone</th>
-                    <th>Address</th>
-                    <th>Product Name</th>
-                    <th>Price</th>
-                    <th>Total Price</th> --}}
-                </thead>
-
                 <tbody>
+
+
                     <tr>
-                        
+                        <td>User name:</td>
+                        <td></td>
+                        <td>{{ $order->user_name }}</td>
+
                     </tr>
 
                     <tr>
-                        <td>1</td>
-                        <td>Lorem ipsum</td>
-                        <td>2.3</td>
+                        <td>Client phone:</td>
+                        <td></td>
+                        <td>{{ $order->phone }}</td>
                     </tr>
 
                     <tr>
-                        <td>1</td>
-                        <td>Lorem ipsum</td>
-                        <td>2.3</td>
+                        <td>Email:</td>
+                        <td></td>
+                        <td>{{ $order->email }}</td>
                     </tr>
-
                     <tr>
-                        <td>1</td>
-                        <td>Lorem ipsum</td>
-                        <td>2.3</td>
+                        <td>Address:</td>
+                        <td></td>
+                        <td>{{ $order->address }}</td>
+                    </tr>
+                    <tr>
+                        <td>Product name:</td>
+                        <td></td>
+                        <td>{{ $order->product_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Count:</td>
+                        <td></td>
+                        <td>{{ $order->quantity }}</td>
+                    </tr>
+                    <tr>
+                        <td>Product price:</td>
+                        <td></td>
+                        <td>${{ $order->price }}</td>
+                    </tr>
+                    <tr>
+                        <td>Total price</td>
+                        <td></td>
+                        <td>${{ $order->total_price }}</td>
                     </tr>
                 </tbody>
 
                 <tfoot>
                     <tr>
-                        <td>Total</td>
+                        <th>Total</th>
                         <td></td>
-                        <td>32.1</td>
+                        <td>${{ $order->total_price }}</td>
                     </tr>
 
                     <tr>
